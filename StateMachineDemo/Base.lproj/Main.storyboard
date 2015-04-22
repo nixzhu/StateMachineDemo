@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3fE-Q8-VBr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Rocket Launch-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="StateMachineDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLm-1d-RSw" customClass="RocketView" customModule="StateMachineDemo" customModuleProvider="target">
-                                <rect key="frame" x="201" y="280" width="200" height="300"/>
+                                <rect key="frame" x="200" y="280" width="200" height="300"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="6wl-QW-32i"/>
@@ -28,9 +28,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fLm-1d-RSw" secondAttribute="bottom" constant="20" id="Sc4-p9-KTr"/>
-                            <constraint firstAttribute="centerX" secondItem="fLm-1d-RSw" secondAttribute="centerX" constant="-0.5" id="eKg-aa-NKV"/>
+                            <constraint firstAttribute="centerX" secondItem="fLm-1d-RSw" secondAttribute="centerX" id="eKg-aa-NKV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Rocket Launch" id="Ji9-yF-uOL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="vSx-AO-bXV">
+                            <connections>
+                                <action selector="landing:" destination="vXZ-lx-hvc" id="ipJ-cW-L6Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="rocketView" destination="fLm-1d-RSw" id="C5n-3e-QGA"/>
                         <outlet property="rocketViewBottomConstraint" destination="Sc4-p9-KTr" id="dkc-oM-Du9"/>
@@ -38,6 +45,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1098" y="1019"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ksY-eu-cDq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3fE-Q8-VBr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pb2-eC-xj1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="tKM-Sq-HAU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEb-LU-ml2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344" y="1019"/>
         </scene>
     </scenes>
 </document>
