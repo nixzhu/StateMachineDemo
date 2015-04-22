@@ -15,6 +15,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        rocketView.stateTransitionAction = { (previousState, currentState) in
+
+            println("state from \(previousState) to \(currentState)")
+
+            switch (previousState, currentState) {
+
+            case (.CountDown, .Launch):
+                UIView.animateWithDuration(3.0, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+                    self.rocketViewBottomConstraint.constant = CGRectGetHeight(self.view.bounds)
+                    self.view.layoutIfNeeded()
+
+                }, completion: { (finished) -> Void in
+                })
+                
+            default:
+                break
+            }
+        }
     }
 }
 
