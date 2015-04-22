@@ -38,6 +38,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="landingButton" destination="vSx-AO-bXV" id="lvR-5A-fFd"/>
                         <outlet property="rocketView" destination="fLm-1d-RSw" id="C5n-3e-QGA"/>
                         <outlet property="rocketViewBottomConstraint" destination="Sc4-p9-KTr" id="dkc-oM-Du9"/>
                     </connections>

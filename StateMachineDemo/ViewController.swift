@@ -13,8 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var rocketView: RocketView!
     @IBOutlet weak var rocketViewBottomConstraint: NSLayoutConstraint!
 
+    @IBOutlet weak var landingButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        landingButton.enabled = false
 
         rocketView.stateTransitionAction = { (previousState, currentState) in
 
@@ -28,10 +32,13 @@ class ViewController: UIViewController {
                     self.view.layoutIfNeeded()
 
                 }, completion: { (finished) -> Void in
+                    self.landingButton.enabled = true
                 })
                 
             default:
                 if currentState == .Standby {
+                    self.landingButton.enabled = false
+
                     UIView.animateWithDuration(1.0, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
                         self.rocketViewBottomConstraint.constant = 20
                         self.view.layoutIfNeeded()
