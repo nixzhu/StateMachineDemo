@@ -29,12 +29,17 @@ class RocketView: UIView {
         return timer
     }
 
+    lazy var rocketImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "rocket"))
+        return imageView
+        }()
+
     lazy var countDownLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .Center
         label.text = "\(self.countDown)"
         label.font = UIFont.boldSystemFontOfSize(30)
-        label.backgroundColor = UIColor.whiteColor()
+        label.textColor = UIColor.whiteColor()
         return label
         }()
 
@@ -162,19 +167,29 @@ class RocketView: UIView {
     }
 
     func makeUI() {
+        addSubview(rocketImageView)
         addSubview(countDownLabel)
         addSubview(fireButton)
         addSubview(abortButton)
 
+        rocketImageView.setTranslatesAutoresizingMaskIntoConstraints(false)
         countDownLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         fireButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         abortButton.setTranslatesAutoresizingMaskIntoConstraints(false)
 
         let viewsDictionary = [
+            "rocketImageView": rocketImageView,
             "countDownLabel": countDownLabel,
             "fireButton": fireButton,
             "abortButton": abortButton,
         ]
+
+        let rocketConstraintsV = NSLayoutConstraint.constraintsWithVisualFormat("V:|[rocketImageView]|", options: NSLayoutFormatOptions(0) , metrics: nil, views: viewsDictionary)
+
+        let rocketConstraintsH1 = NSLayoutConstraint.constraintsWithVisualFormat("H:|[rocketImageView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
+
+        NSLayoutConstraint.activateConstraints(rocketConstraintsV)
+        NSLayoutConstraint.activateConstraints(rocketConstraintsH1)
 
         let constraintsV = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(>=0)-[countDownLabel(50)]-30-[fireButton(60)]-|", options: NSLayoutFormatOptions(0) , metrics: nil, views: viewsDictionary)
 

@@ -18,14 +18,13 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLm-1d-RSw" customClass="RocketView" customModule="StateMachineDemo" customModuleProvider="target">
                                 <rect key="frame" x="200" y="280" width="200" height="300"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="6wl-QW-32i"/>
                                     <constraint firstAttribute="height" constant="300" id="Jqo-Nz-kFn"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fLm-1d-RSw" secondAttribute="bottom" constant="20" id="Sc4-p9-KTr"/>
                             <constraint firstAttribute="centerX" secondItem="fLm-1d-RSw" secondAttribute="centerX" id="eKg-aa-NKV"/>
